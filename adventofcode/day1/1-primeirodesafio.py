@@ -1,7 +1,9 @@
+from collections import Counter
+
 arquivo = '/home/pintermaciel/code/adventofcode/adventofcode/day1/input.txt'
 
-lista1 = []
-lista2 = []
+list1 = []
+list2 = []
 
 with open(arquivo, "r") as file:
     data = [
@@ -18,7 +20,12 @@ distances = [abs(list1[i] - list2[i]) for i in range(len(list1))]
 
 total_distance = sum(distances)
 
-print("Lista 1 ordenada:", list1)
-print("Lista 2 ordenada:", list2)
-print("Distâncias:", distances)
+
 print("Soma das distâncias:", total_distance)
+
+
+contalista2 = Counter(list2) 
+
+similaridade = sum(num * contalista2[num] for num in list1)
+
+print("Similaridade:", similaridade)
